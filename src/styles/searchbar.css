@@ -1,0 +1,54 @@
+@media (max-width: 361px ) { 
+  .search-container {
+    background-color: #ffe0d4;
+    width: 360px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  @font-face {
+    font-family: Louis;
+    src: url(./fonts/Louis\ George\ Cafe\ Bold.ttf)
+  }
+
+  .text-input {
+    width: 300px;
+    margin: 5px auto;
+    border: #ff2800 solid 1px;
+    border-radius: 10px;
+  }
+
+  .search-input {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .search-button {
+    width: 200px;
+    border: #ffe0d4 2px solid;
+    background-color:#ff2800;
+    border-radius: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    margin: auto auto 10px auto;
+  }
+
+  .input-label {
+    font-family: Louis ;
+    color: #ff2800;
+  }
+
+  ::placeholder {
+    color: gainsboro;
+    font-family: Louis ;
+  }
+
+  .radio-container {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around
+  }
+}

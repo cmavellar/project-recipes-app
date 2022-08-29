@@ -17,6 +17,7 @@ function CardDoneRecipes() {
             <div>
               <Link to={ `/${recipe.type}s/${recipe.id}` }>
                 <img
+                  className="card-image"
                   src={ recipe.image }
                   alt={ recipe.name }
                   data-testid={ `${index}-horizontal-image` }
