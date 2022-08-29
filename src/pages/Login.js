@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import Logo from '../images/tryfood.png';
+import '../styles/login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -40,33 +42,39 @@ function Login() {
   };
 
   return (
-    <div>
-      <form>
-        <input
-          name="Email"
-          data-testid="email-input"
-          type="email"
-          placeholder="Insira seu email"
-          value={ email }
-          onChange={ handleChange }
-        />
-        <input
-          name="Password"
-          data-testid="password-input"
-          type="password"
-          placeholder="Insira sua senha"
-          value={ password }
-          onChange={ handleChange }
-        />
-        <button
-          type="button"
-          data-testid="login-submit-btn"
-          onClick={ submitLogin }
-          disabled={ isDisabled }
-        >
-          Enter
-        </button>
-      </form>
+    <div className="container">
+      <img className="logo" src={ Logo } alt="logoImage" />
+      <div className="content">
+        <form>
+          <input
+            className="login-input"
+            name="Email"
+            data-testid="email-input"
+            type="email"
+            placeholder="Insira seu email"
+            value={ email }
+            onChange={ handleChange }
+          />
+          <input
+            className="login-input"
+            name="Password"
+            data-testid="password-input"
+            type="password"
+            placeholder="Insira sua senha"
+            value={ password }
+            onChange={ handleChange }
+          />
+          <button
+            className="login-button"
+            type="button"
+            data-testid="login-submit-btn"
+            onClick={ submitLogin }
+            disabled={ isDisabled }
+          >
+            Enter
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

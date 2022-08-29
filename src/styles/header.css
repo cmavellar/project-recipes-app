@@ -1,0 +1,41 @@
+@media (max-width: 361px ) {
+  .header-container {
+    width: 100%;
+    align-items: center;
+    background-color: #ff2800;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+  }
+
+  .buttons-div {
+    display: flex;
+    justify-content: space-around;
+    width: 120px;
+  }
+
+  @font-face {
+    font-family: Bukhari;
+    src: url(./fonts/Bukhari\ Script.ttf)
+  }
+
+  .header-button {
+    background-color: red;
+    border: 2px solid #ff2800;
+  }
+
+  .header-title {
+    margin-top: 9px;
+    color: white;
+    font-family: Bukhari;
+    font-weight: 100;
+  }
+
+  .profile-icon {
+    width: 30px;
+  }
+
+  .search-icon {
+    width: 30px;
+  }
+}

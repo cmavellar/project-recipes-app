@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import MyContext from '../context/MyContext';
+import '../styles/searchbar.css';
 
 function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
@@ -110,44 +111,52 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <input
+        className="text-input"
+        placeholder="Search a Recipe"
         type="text"
         data-testid="search-input"
         onChange={ (e) => setSearchInput(e.target.value) }
         value={ searchInput }
       />
-      <label htmlFor="ingredient">
-        ingredient
-        <input
-          id="ingredient"
-          type="radio"
-          data-testid="ingredient-search-radio"
-          name="radio"
-          onClick={ (e) => setRadioId(e.target.id) }
-        />
-      </label>
-      <label htmlFor="name">
-        Name
-        <input
-          id="name"
-          type="radio"
-          data-testid="name-search-radio"
-          name="radio"
-          onClick={ (e) => setRadioId(e.target.id) }
-        />
-      </label>
-      <label htmlFor={ firstLetter }>
-        First Letter
-        <input
-          id={ firstLetter }
-          type="radio"
-          data-testid="first-letter-search-radio"
-          name="radio"
-          onClick={ (e) => setRadioId(e.target.id) }
-        />
-      </label>
+      <div className="radio-container">
+        <label className="input-label" htmlFor="ingredient">
+          <input
+            className="search-input"
+            id="ingredient"
+            type="radio"
+            data-testid="ingredient-search-radio"
+            name="radio"
+            onClick={ (e) => setRadioId(e.target.id) }
+          />
+          Ingredient
+        </label>
+        <label className="input-label" htmlFor="name">
+          <input
+            className="search-input"
+            id="name"
+            type="radio"
+            data-testid="name-search-radio"
+            name="radio"
+            onClick={ (e) => setRadioId(e.target.id) }
+          />
+          Name
+        </label>
+        <label className="input-label" htmlFor={ firstLetter }>
+          <input
+            className="search-input"
+            id={ firstLetter }
+            type="radio"
+            data-testid="first-letter-search-radio"
+            name="radio"
+            onClick={ (e) => setRadioId(e.target.id) }
+          />
+          First Letter
+        </label>
+      </div>
       <button
+        className="search-button"
         type="button"
         data-testid="exec-search-btn"
         onClick={ SearchItems }

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import MyContext from '../context/MyContext';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import '../styles/recipes.css';
 
 function Recipes() {
   const history = useHistory();
@@ -65,14 +66,20 @@ function Recipes() {
     const name = recipe.strMeal ? recipe.strMeal : recipe.strDrink;
     return (
       <div
+        className="polaroid"
         data-testid={ `${index}-recipe-card` }
         key={ name }
         onClick={ () => redirect(recipe) }
         onKeyDown={ redirect }
         aria-hidden
       >
-        <img src={ thumb } alt={ name } data-testid={ `${index}-card-img` } />
-        <p data-testid={ `${index}-card-name` }>{name}</p>
+        <img
+          className="recipe-image"
+          src={ thumb }
+          alt={ name }
+          data-testid={ `${index}-card-img` }
+        />
+        <p className="recipe-title" data-testid={ `${index}-card-name` }>{name}</p>
       </div>
     );
   });
@@ -109,8 +116,9 @@ function Recipes() {
 
     categories.map((category, index) => (
       index === 0 ? (
-        <div key={ category.strCategory }>
+        <div className="first-buttons" key={ category.strCategory }>
           <button
+            className="category-button"
             type="button"
             onClick={ onClick }
             value="All"
@@ -119,6 +127,7 @@ function Recipes() {
             All
           </button>
           <button
+            className="category-button"
             type="button"
             data-testid={ `${category.strCategory}-category-filter` }
             onClick={ onClick }
@@ -129,6 +138,7 @@ function Recipes() {
         </div>
       ) : (
         <button
+          className="category-button"
           type="button"
           key={ category.strCategory }
           data-testid={ `${category.strCategory}-category-filter` }
@@ -145,12 +155,17 @@ function Recipes() {
   return (
     <div>
       <Header title={ title } />
-      {
-        renderFilterButtons()
-      }
-      {
-        filteredRecipes.length === 0 ? cardRecipes(recipes) : cardRecipes(filteredRecipes)
-      }
+      <div className="category">
+        {
+          renderFilterButtons()
+        }
+      </div>
+      <div className="recipe-container">
+        {
+          filteredRecipes.length === 0
+            ? cardRecipes(recipes) : cardRecipes(filteredRecipes)
+        }
+      </div>
       <Footer />
     </div>
   );
