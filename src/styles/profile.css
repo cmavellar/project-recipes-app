@@ -1,38 +1,40 @@
-.header {
-  display: flex;
-  flex-direction: row-reverse;
-  margin: 0 auto;
-  width: 500px;
-}
+@media (max-width: 361px ) {
+  .profile-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #ffe0d4;
+  }
 
-.div-body {
-  background-color: lightgoldenrodyellow;
-}
+  .buttons-container {
+    justify-content: space-around;
+  }
 
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 500px;
-}
+  .button-redirect {
+    padding: 5px;
+    font-weight: 800;
+    width: 90px;
+    border-radius: 10px;
+    border: solid #ff2800 1px;
+    background-color: white;
+    color: #ff2800;
+  }
 
-.button-redirect {
-  background-color: coral;
-  border: 2px solid black;
-  flex: 2;
-  font-family: cursive;
-  font-size: large;
-  font-style: oblique;
-  margin: 5px;
-  text-transform: uppercase;
-}
+  .button-redirect:hover {
+    background-color: #ff2800;
+    color: white;
+  }
 
-.profile-email {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: larger;
-  font-weight: 900;
-  justify-content: center;
-
+  .profile-email {
+    background-color: white;
+    padding: 5px;
+    max-width: 340px;
+    border-radius: 5px;
+    color: #ff2800;
+    display: flex;
+    align-self: center;
+    margin-top: 20px;
+    font-weight: 700;
+  }
 }

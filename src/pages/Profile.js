@@ -33,7 +33,7 @@ function Profile() {
   return (
     <div className="div-body">
       <Header />
-      <section>
+      <div className="profile-container">
         <p
           className="profile-email"
           data-testid="profile-email"
@@ -70,7 +70,7 @@ function Profile() {
 
           </button>
         </div>
-      </section>
+      </div>
       <Footer />
     </div>
   );
