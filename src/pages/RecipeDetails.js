@@ -9,9 +9,9 @@ import {
 import {
   verifyingDoneRecipes, verifyingFavoriteRecipes, verifyingInProgressRecipes,
 } from '../helpers/verifyLocalStorage';
-import '../styles/recipeDetails.css';
 import addFavoriteRecipe from '../helpers/saveFavorites';
 import isFavoritedButton from '../helpers/isFavoriteButton';
+import '../styles/details.css';
 
 function RecipeDetails() {
   const history = useHistory();
@@ -65,20 +65,23 @@ function RecipeDetails() {
       return (
         recomendationRecipes.map((recomendation, index) => (
           <div
+            className="recomendation-container"
             key={ index }
             data-testid={ `${index}-recomendation-card` }
           >
             <img
+              className="recomendation-image"
               src={ recomendation.strDrinkThumb }
               alt={ recomendation.strDrink }
               width={ 180 }
             />
             <h4
+              className="recomendation title"
               data-testid={ `${index}-recomendation-title` }
             >
               {recomendation.strDrink}
             </h4>
-            <p>{recomendation.strAlcoholic}</p>
+            <p className="recomendation-extra">{recomendation.strAlcoholic}</p>
           </div>
         ))
       );
@@ -86,18 +89,24 @@ function RecipeDetails() {
     if (path === 'drinks') {
       return (
         recomendationRecipes.map((recomendation, index) => (
-          <div key={ index } data-testid={ `${index}-recomendation-card` }>
+          <div
+            className="recomendation-container"
+            key={ index }
+            data-testid={ `${index}-recomendation-card` }
+          >
             <img
+              className="recomendation-image"
               src={ recomendation.strMealThumb }
               alt={ recomendation.strMeal }
               width={ 180 }
             />
             <h4
+              className="recomendation title"
               data-testid={ `${index}-recomendation-title` }
             >
               {recomendation.strMeal}
             </h4>
-            <p>{recomendation.strCategory}</p>
+            <p className="recomendation-extra">{recomendation.strCategory}</p>
           </div>
         ))
       );
@@ -125,49 +134,63 @@ function RecipeDetails() {
 
     return (
       <>
-        <img src={ thumb } data-testid="recipe-photo" alt={ name } width={ 400 } />
-        <h1 data-testid="recipe-title">{name}</h1>
-        <h4 data-testid="recipe-category">{info}</h4>
-        <ul>
-          {
-            ingredients.map((ingredient, index) => (
-              <li
-                key={ ingredient }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                {ingredient[1]}
-                {measure[index] && measure[index][1]}
-              </li>
-            ))
-          }
-        </ul>
-        <p data-testid="instructions">{instructions}</p>
+        <img
+          className="details-image"
+          src={ thumb }
+          data-testid="recipe-photo"
+          alt={ name }
+          width={ 400 }
+        />
+        <div className="details-info">
+          <h1 className="details-title" data-testid="recipe-title">{name}</h1>
+          <h4 className="details-category" data-testid="recipe-category">{info}</h4>
+          <ul>
+            {
+              ingredients.map((ingredient, index) => (
+                <li
+                  className="details-list-element"
+                  key={ ingredient }
+                  data-testid={ `${index}-ingredient-name-and-measure` }
+                >
+                  {ingredient[1]}
+                  {measure[index] && measure[index][1]}
+                </li>
+              ))
+            }
+          </ul>
+          <p data-testid="instructions">{instructions}</p>
+        </div>
         {
           linkCopied === true && <p>Link copied!</p>
         }
-        <button
-          type="button"
-          onClick={ () => {
-            clipboardCopy(`http://localhost:3000${pathname}`);
-            setLinkCopied(true);
-          } }
-        >
-          <img src={ shareIcon } alt="share icon" data-testid="share-btn" />
-        </button>
-        <button
-          type="button"
-          onClick={ () => {
-            setIsFavorited(!isFavorited);
-            addFavoriteRecipe(recipeData, id, path);
-          } }
-        >
-          {
-            isFavoritedButton(isFavorited)
-          }
-        </button>
+        <div className="buttons-container">
+          <button
+            className="details-button"
+            type="button"
+            onClick={ () => {
+              clipboardCopy(`http://localhost:3000${pathname}`);
+              setLinkCopied(true);
+            } }
+          >
+            <img src={ shareIcon } alt="share icon" data-testid="share-btn" />
+          </button>
+          <button
+            className="details-button"
+            type="button"
+            onClick={ () => {
+              setIsFavorited(!isFavorited);
+              addFavoriteRecipe(recipeData, id, path);
+            } }
+          >
+            {
+              isFavoritedButton(isFavorited)
+            }
+          </button>
+        </div>
         {
           path === 'foods' && (
             <iframe
+              className="video"
               title={ urlVideo }
               width="420"
               height="315"
@@ -202,7 +225,7 @@ function RecipeDetails() {
   };
 
   return (
-    <div>
+    <div className="details-container">
       {
         recipeDetailsContent()
       }
