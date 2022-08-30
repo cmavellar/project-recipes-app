@@ -52,11 +52,6 @@ function CardDoneRecipes() {
                   </h4>
                 )}
 
-                {
-                  linkCopied === true
-                    && <span className="link-copied">Link copied!</span>
-                }
-
                 <button
                   className="share-button"
                   type="button"
@@ -74,6 +69,11 @@ function CardDoneRecipes() {
                 </button>
               </div>
 
+              {
+                linkCopied === true
+                    && <span className="link-copied">Link copied!</span>
+              }
+
               <p
                 className="recipe-date"
                 data-testid={ `${index}-horizontal-done-date` }
@@ -81,16 +81,19 @@ function CardDoneRecipes() {
                 {`Done in: ${recipe.doneDate}`}
               </p>
 
-              {
-                recipe.tags && recipe.tags.map((tag) => (
-                  <h5
-                    className="recipe-tag"
-                    data-testid={ `${index}-${tag}-horizontal-tag` }
-                    key={ `${index}-${tag}` }
-                  >
-                    {tag}
-                  </h5>))
-              }
+              <div className="tag-container">
+                {
+                  recipe.tags && recipe.tags.slice(0, 2).map((tag) => (
+                    <h5
+                      className="recipe-tag"
+                      data-testid={ `${index}-${tag}-horizontal-tag` }
+                      key={ `${index}-${tag}` }
+                    >
+                      {tag}
+                    </h5>))
+                }
+              </div>
+              {console.log(doneRecipes[0].tags)}
             </div>
 
           </div>
