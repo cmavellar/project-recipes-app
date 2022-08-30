@@ -1,0 +1,138 @@
+@media (max-width: 361px ) {
+    body {
+      width: 360px;
+    }
+  
+    @font-face {
+      font-family: Louis;
+      src: url(./fonts/Louis\ George\ Cafe\ Bold.ttf)
+    }
+  
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px 20px
+    }
+  
+    .filter-buttons {
+      margin: 5px;
+      font-weight: 800;
+      width: 90px;
+      border-radius: 10px;
+      border: solid #ff2800 1px;
+      background-color: white;
+      color: #ff2800;
+    }
+  
+    .filter-buttons:hover {
+      background-color: #ff2800;
+      color: white;
+    }
+  
+    .recipe-container {
+      width: 100%;
+      margin-top: 10px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .card-recipe {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      background-color: #ff2800;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    .recipe-image-done {
+      width: 300px;
+      border: white 5px solid;
+      border-radius: 10px;
+    }
+  
+    .info-recipe {
+      display: flex;
+      flex-flow: column;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    .recipe-name {
+      font-size: 20px;
+      font-family: Louis ;
+      color: white;
+      text-align: center;
+      height: 10px;
+      margin-top: 4px;
+      margin-bottom: 15px;
+    }
+  
+    .category-share {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
+  
+    .recipe-category {
+      font-size: 17px;
+      font-family: Louis ;
+      /* color: #ffa283; */
+      color: white;
+      height: 10px;
+      margin-top: 4px;
+    }
+  
+    .share-button {
+      margin: 5px;
+      width: 60px;
+      border-radius: 10px;
+      border: solid #ff2800 1px;
+      background-color: #ffe0d4;
+    }
+  
+    .share-button:hover {
+      background-color: #ffa283;
+    }
+  
+    .link-copied {
+      font-size: 15px;
+      font-family: Louis ;
+      color: #ffe0d4;
+      /* height: 10px; */
+      margin-top: 4px;
+    }
+  
+    .recipe-date {
+      font-size: 15px;
+      font-family: Louis ;
+      color: #ffa283;
+      text-align: center;
+      height: 10px;
+      margin-top: 4px;
+    }
+
+    .recipe-tag {
+        font-size: 15px;
+        font-family: Louis ;
+        color: #ff2800;
+        background-color: #ffa283;
+        margin: 5px;
+        width: 60px;
+        border-radius: 10px;
+        border: solid #ff2800 1px;
+        text-align: center;
+        /* height: 10px; */
+        margin-top: 15px;
+        /* justify-content: center; */
+      }
+  
+}

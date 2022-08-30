@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import CardDoneRecipes from '../components/CardDoneRecipes';
 import Header from '../components/Header';
 import MyContext from '../context/MyContext';
+import '../styles/doneRecipes.css';
 
 function DoneRecipes() {
   const { setTitle, setShowHeader, setSearch, setDoneRecipes } = useContext(MyContext);
@@ -28,8 +29,9 @@ function DoneRecipes() {
   return (
     <div>
       <Header />
-      <div>
+      <div className="button-container">
         <button
+          className="filter-buttons"
           type="button"
           name="all"
           data-testid="filter-by-all-btn"
@@ -39,6 +41,7 @@ function DoneRecipes() {
         </button>
 
         <button
+          className="filter-buttons"
           type="button"
           name="food"
           data-testid="filter-by-food-btn"
@@ -48,6 +51,7 @@ function DoneRecipes() {
         </button>
 
         <button
+          className="filter-buttons"
           type="button"
           name="drink"
           data-testid="filter-by-drink-btn"
