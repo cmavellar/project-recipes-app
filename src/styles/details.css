@@ -1,0 +1,114 @@
+@media (max-width: 361px ) { 
+.details-container {
+  font-family: Louis;
+}
+
+  .details-image {
+    width: 360px;
+  }
+
+  .details-info {
+    color: black;
+    font-family: Louis ;
+    padding: 10px;
+  }
+
+  .recipe-steps {
+    display: flex;
+    flex-flow: row;
+  }
+
+  .input-step {
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+
+  .cutted {
+    text-decoration: line-through;
+    text-decoration-color: #ff2800;
+  }
+
+  .details-title {
+    margin-left: 20px;
+  }
+
+  .details-category {
+    margin-left: 20px;
+  }
+
+  .empty-heart {
+    width: 25px;
+  }
+
+  .details-button {
+    border: solid 2px white;
+    background-color: white;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-flow: row;
+    width: 360px;
+    margin-bottom: 20px;
+  }
+
+  .video {
+    width: 360px;
+  }
+
+  .recomendation-container {
+    background-color: red;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+
+  .recomendation-image {
+    border: 4px solid white;
+    border-radius: 10px;
+  }
+
+  .recomendations-container {
+    overflow: hidden;
+  }
+  
+  .teste {
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  .fixed-bottom {
+    width: 200px;
+    background-color:#ff2800;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px white solid;
+  }
+
+  .finish-button {
+    width: 200px;
+    background-color:#ff2800;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px white solid;
+  }
+
+  @font-face {
+    font-family: Louis;
+    src: url(./fonts/Louis\ George\ Cafe\ Bold.ttf)
+  }
+}

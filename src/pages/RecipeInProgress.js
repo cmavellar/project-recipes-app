@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import '../styles/RecipeInProgress.css';
 import clipboardCopy from 'clipboard-copy';
 import { requestDrinkById, requestFoodById } from '../helpers/requestAPI';
 import addFavoriteRecipe from '../helpers/saveFavorites';
@@ -8,6 +7,7 @@ import saveRecipe from '../helpers/saveDoneRecipe';
 import shareIcon from '../images/shareIcon.svg';
 import isFavoritedButton from '../helpers/isFavoriteButton';
 import { verifyingFavoriteRecipes } from '../helpers/verifyLocalStorage';
+import '../styles/details.css';
 
 function RecipeInProgress() {
   const history = useHistory();
@@ -97,22 +97,37 @@ function RecipeInProgress() {
     if (requestedFood[0] !== undefined) {
       if (path === 'foods') {
         return (
-          <div>
-            <h2 data-testid="recipe-title">{ requestedFood[0].strMeal }</h2>
+          <div className="details-container">
             <img
+              className="details-image"
               data-testid="recipe-photo"
               src={ requestedFood[0].strMealThumb }
               alt="foto da comida"
               width="300px"
             />
-            <p data-testid="recipe-category">
-              {`categoria: ${requestedFood[0].strCategory}`}
-            </p>
+            <h1
+              className="details-title"
+              data-testid="recipe-title"
+            >
+              { requestedFood[0].strMeal }
+
+            </h1>
+            <h4
+              className="details-category"
+              data-testid="recipe-category"
+            >
+              {requestedFood[0].strCategory}
+            </h4>
             <ul>
               { ingredientsFiltreds.map(
                 (e, index) => (
-                  <li key={ e } data-testid={ `${index}-ingredient-step` }>
+                  <li
+                    className="recipe-steps"
+                    key={ e }
+                    data-testid={ `${index}-ingredient-step` }
+                  >
                     <input
+                      className="input-step"
                       data-testid={ `${index}-checkbox` }
                       type="checkbox"
                       onChange={ () => habilitaButton() }
@@ -128,12 +143,14 @@ function RecipeInProgress() {
             <p data-testid="instructions">{ requestedFood[0].strInstructions }</p>
             { linkCopied === true && <p>Link copied!</p> }
             <button
+              className="details-button"
               type="button"
               onClick={ () => saveOnClipBoard() }
             >
               <img src={ shareIcon } alt="share icon" data-testid="share-btn" />
             </button>
             <button
+              className="details-button"
               type="button"
               onClick={ () => {
                 addFavoriteRecipe(requestedFood[0], id, path);
@@ -143,6 +160,7 @@ function RecipeInProgress() {
               { isFavoritedButton(isFavorited) }
             </button>
             <button
+              className="fixed-bottom"
               data-testid="finish-recipe-btn"
               type="button"
               disabled={ habilitaFinish }
@@ -189,19 +207,26 @@ function RecipeInProgress() {
             </ul>
             <p data-testid="instructions">{requestedFood[0].strInstructions}</p>
             { linkCopied === true && <p>Link copied!</p> }
-            <button type="button" onClick={ () => saveOnClipBoard() }>
-              <img src={ shareIcon } alt="share icon" data-testid="share-btn" />
-            </button>
+            <div className="buttons-container">
+              <button
+                className="details-button"
+                type="button"
+                onClick={ () => saveOnClipBoard() }
+              >
+                <img src={ shareIcon } alt="share icon" data-testid="share-btn" />
+              </button>
+              <button
+                type="button"
+                onClick={ () => {
+                  addFavoriteRecipe(requestedFood[0], id, path);
+                  setIsFavorited(!isFavorited);
+                } }
+              >
+                { isFavoritedButton(isFavorited) }
+              </button>
+            </div>
             <button
-              type="button"
-              onClick={ () => {
-                addFavoriteRecipe(requestedFood[0], id, path);
-                setIsFavorited(!isFavorited);
-              } }
-            >
-              { isFavoritedButton(isFavorited) }
-            </button>
-            <button
+              className="finish-button"
               data-testid="finish-recipe-btn"
               type="button"
               disabled={ habilitaFinish }
