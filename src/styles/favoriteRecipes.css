@@ -2,20 +2,20 @@
   body {
     width: 360px;
   }
-
+  
   @font-face {
     font-family: Louis;
     src: url(./fonts/Louis\ George\ Cafe\ Bold.ttf)
   }
-  
-  .button-container-done {
+    
+  .button-container-favorite {
     display: flex;
     flex-wrap: wrap;
     padding: 10px 20px;
     justify-content: center;
   }
-  
-  .filter-buttons-done {
+
+  .filter-buttons-favorite {
     margin: 5px;
     font-weight: 800;
     width: 90px;
@@ -25,12 +25,12 @@
     color: #ff2800;
   }
   
-  .filter-buttons-done:hover {
+  .filter-buttons-favorite:hover {
     background-color: #ff2800;
     color: white;
   }
 
-  .recipe-container-done {
+  .recipe-container-favorite {
     width: 100%;
     margin-top: 1px;
     display: flex;
@@ -38,8 +38,8 @@
     justify-content: center;
     align-items: center;
   }
-  
-  .card-recipe-done {
+    
+  .card-recipe-favorite {
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -51,48 +51,54 @@
     margin-right: 10px;
   }
 
-  .recipe-image-done {
+  .recipe-image-favorite {
     width: 300px;
     border: white 5px solid;
     border-radius: 10px;
   }
   
-  .info-recipe-done {
+  .info-recipe-favorite {
     display: flex;
     flex-flow: column;
     margin-left: 10px;
     margin-right: 10px;
   }
 
-  .recipe-name-done {
+  .recipe-image-favorite {
+    width: 300px;
+    border: white 5px solid;
+    border-radius: 10px;
+  }
+
+  .recipe-name-favorite {
     font-size: 20px;
     font-family: Louis ;
     color: white;
     text-align: center;
     height: 5px;
     margin-top: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
-  
-  .category-share-done {
+
+  .recipe-category-favorite {
+    font-size: 17px;
+    font-family: Louis ;    
+    color: #ffe0d4;
+    text-align: center;
+    height: 10px;
+    margin-top: 4px;
+  }
+
+  .buttons-favorite {
     display: flex;
     flex-flow: row;
     align-items: center;
     justify-content: space-around;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
-  .recipe-category-done {
-    font-size: 17px;
-    font-family: Louis ;
-    color: #ffe0d4;
-    /* color: white; */
-    height: 10px;
-    margin-top: 4px;
-  }
-  
-  .share-button-done {
+  .share-button-favorite {
     margin: 5px;
     width: 60px;
     border-radius: 10px;
@@ -100,49 +106,32 @@
     background-color: #ffe0d4;
   }
 
-  .share-button-done:hover {
+  .share-button-favorite:hover {
     background-color: #ff2800;
   }
 
-  .share-icon-done {
+  .icon-favorite {
     width: 20px;
   }
-  
-  .link-copied-done {
+
+  .heart-button-favorite {
+    margin: 5px;
+    width: 60px;
+    border-radius: 10px;
+    border: solid #ff2800 1px;
+    background-color: #ffe0d4;
+  }
+
+  .heart-button-favorite:hover {
+    background-color: #ff2800;
+  }
+
+  .link-copied-favorite {
     display: flex;
     justify-content: center;
     font-size: 15px;
     font-family: Louis ;
     color: #ffe0d4;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
   }
-
-  .recipe-date-done {
-    font-size: 15px;
-    font-family: Louis ;
-    color: #ffa283;
-    text-align: center;
-    height: 5px;
-    margin-top: 4px;
-  }
-
-  .tag-container-done {
-    display: inline-flex;
-    justify-content: space-around;
-  }
-
-  .recipe-tag-done {
-    font-size: 15px;
-    font-family: Louis ;
-    color: #ff2800;
-    background-color: #ffa283;
-    margin: 5px;
-    width: 90px;
-    border-radius: 10px;
-    border: solid #ff2800 1px;
-    text-align: center;
-    margin-top: 15px;
-    padding: 5px 10px
-  }
-  
 }

@@ -29,9 +29,9 @@ function DoneRecipes() {
   return (
     <div>
       <Header />
-      <div className="button-container">
+      <div className="button-container-done">
         <button
-          className="filter-buttons"
+          className="filter-buttons-done"
           type="button"
           name="all"
           data-testid="filter-by-all-btn"
@@ -41,7 +41,7 @@ function DoneRecipes() {
         </button>
 
         <button
-          className="filter-buttons"
+          className="filter-buttons-done"
           type="button"
           name="food"
           data-testid="filter-by-food-btn"
@@ -51,7 +51,7 @@ function DoneRecipes() {
         </button>
 
         <button
-          className="filter-buttons"
+          className="filter-buttons-done"
           type="button"
           name="drink"
           data-testid="filter-by-drink-btn"

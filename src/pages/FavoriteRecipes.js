@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import MyContext from '../context/MyContext';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeart from '../images/blackHeartIcon.svg';
+import '../styles/favoriteRecipes.css';
 
 function FavoriteRecipes() {
   const { setTitle, setShowHeader, setSearch } = useContext(MyContext);
@@ -35,10 +36,12 @@ function FavoriteRecipes() {
   const renderRecipesFavorites = () => recipes.map((recipe, index) => (
     recipe.type === 'food' ? (
       <div
+        className="card-recipe-favorite"
         key={ index }
       >
         <Link to={ `/foods/${recipe.id}` }>
           <img
+            className="recipe-image-favorite"
             src={ recipe.image }
             alt={ `Foto da comida ${recipe.name}` }
             data-testid={ `${index}-horizontal-image` }
@@ -46,49 +49,70 @@ function FavoriteRecipes() {
             height="300px"
           />
         </Link>
-        <p
-          data-testid={ `${index}-horizontal-top-text` }
-        >
-          {`${recipe.nationality} - ${recipe.category}`}
-        </p>
-        <Link to={ `/foods/${recipe.id}` }>
-          <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
-        </Link>
-        {
-          linkCopied === true && <p>Link copied!</p>
-        }
-        <button
-          type="button"
-          onClick={ () => {
-            clipboardCopy(`http://localhost:3000/${recipe.type}s/${recipe.id}`);
-            setLinkCopied(true);
-          } }
-        >
-          <img
-            src={ shareIcon }
-            alt="Botão de compartilhar"
-            data-testid={ `${index}-horizontal-share-btn` }
-          />
-        </button>
-        <button
-          type="button"
-          onClick={ () => deleteFavorites(recipe.id) }
-        >
-          <img
-            src={ blackHeart }
-            alt="Botão de desfavoritar"
-            data-testid={ `${index}-horizontal-favorite-btn` }
-          />
-        </button>
+
+        <div className="info-recipe-favorite">
+          <Link to={ `/foods/${recipe.id}` }>
+            <p
+              className="recipe-name-favorite"
+              data-testid={ `${index}-horizontal-name` }
+            >
+              {recipe.name}
+            </p>
+          </Link>
+
+          <p
+            className="recipe-category-favorite"
+            data-testid={ `${index}-horizontal-top-text` }
+          >
+            {`${recipe.nationality} - ${recipe.category}`}
+          </p>
+
+          <div className="buttons-favorite">
+            <button
+              className="share-button-favorite"
+              type="button"
+              onClick={ () => {
+                clipboardCopy(`http://localhost:3000/${recipe.type}s/${recipe.id}`);
+                setLinkCopied(true);
+              } }
+            >
+              <img
+                className="icon-favorite"
+                src={ shareIcon }
+                alt="Botão de compartilhar"
+                data-testid={ `${index}-horizontal-share-btn` }
+              />
+            </button>
+            <button
+              className="heart-button-favorite"
+              type="button"
+              onClick={ () => deleteFavorites(recipe.id) }
+            >
+              <img
+                className="icon-favorite"
+                src={ blackHeart }
+                alt="Botão de desfavoritar"
+                data-testid={ `${index}-horizontal-favorite-btn` }
+              />
+            </button>
+          </div>
+
+          {
+            linkCopied === true
+              && <span className="link-copied-favorite">Link copied!</span>
+          }
+        </div>
       </div>
 
     ) : (
 
       <div
+        className="card-recipe-favorite"
         key={ index }
       >
         <Link to={ `/drinks/${recipe.id}` }>
           <img
+            className="recipe-image-favorite"
             src={ recipe.image }
             alt={ `Foto da comida ${recipe.name}` }
             data-testid={ `${index}-horizontal-image` }
@@ -96,43 +120,61 @@ function FavoriteRecipes() {
             height="300px"
           />
         </Link>
-        <p
-          data-testid={ `${index}-horizontal-top-text` }
-        >
-          { recipe.alcoholicOrNot }
-        </p>
-        <Link to={ `/drinks/${recipe.id}` }>
-          <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
-        </Link>
-        {
-          linkCopied === true && <p>Link copied!</p>
-        }
-        <button
-          type="button"
-          onClick={ () => {
-            clipboardCopy(`http://localhost:3000/${recipe.type}s/${recipe.id}`);
-            setLinkCopied(true);
-          } }
-          // CRIAR UM ESTADO PARA VIR A MSG, COMECANDO COMO FALSE, E VINDO COMO TRUE
-          // FUNÇÃO DE TRAZER A MSG DE LINK COPIADO - VER NO README
-        >
-          <img
-            src={ shareIcon }
-            alt="Botão de compartilhar"
-            data-testid={ `${index}-horizontal-share-btn` }
-          />
-        </button>
-        <button
-          type="button"
-          onClick={ () => deleteFavorites(recipe.id) }
-          // FUNÇAO DE ONCLICK PARA DESFAVORITAR
-        >
-          <img
-            src={ blackHeart }
-            alt="Botão de desfavoritar"
-            data-testid={ `${index}-horizontal-favorite-btn` }
-          />
-        </button>
+
+        <div className="info-recipe-favorite">
+          <Link to={ `/drinks/${recipe.id}` }>
+            <p
+              className="recipe-name-favorite"
+              data-testid={ `${index}-horizontal-name` }
+            >
+              {recipe.name}
+            </p>
+          </Link>
+
+          <p
+            className="recipe-category-favorite"
+            data-testid={ `${index}-horizontal-top-text` }
+          >
+            { recipe.alcoholicOrNot }
+          </p>
+
+          <div className="buttons-favorite">
+            <button
+              className="share-button-favorite"
+              type="button"
+              onClick={ () => {
+                clipboardCopy(`http://localhost:3000/${recipe.type}s/${recipe.id}`);
+                setLinkCopied(true);
+              } }
+              // CRIAR UM ESTADO PARA VIR A MSG, COMECANDO COMO FALSE, E VINDO COMO TRUE
+              // FUNÇÃO DE TRAZER A MSG DE LINK COPIADO - VER NO README
+            >
+              <img
+                className="icon-favorite"
+                src={ shareIcon }
+                alt="Botão de compartilhar"
+                data-testid={ `${index}-horizontal-share-btn` }
+              />
+            </button>
+            <button
+              className="heart-button-favorite"
+              type="button"
+              onClick={ () => deleteFavorites(recipe.id) }
+              // FUNÇAO DE ONCLICK PARA DESFAVORITAR
+            >
+              <img
+                className="icon-favorite"
+                src={ blackHeart }
+                alt="Botão de desfavoritar"
+                data-testid={ `${index}-horizontal-favorite-btn` }
+              />
+            </button>
+          </div>
+          {
+            linkCopied === true
+              && <span className="link-copied-favorite">Link copied!</span>
+          }
+        </div>
       </div>
     )
   ));
@@ -140,8 +182,9 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header />
-      <div>
+      <div className="button-container-favorite">
         <button
+          className="filter-buttons-favorite"
           type="button"
           data-testid="filter-by-all-btn"
           onClick={ () => setRecipes(allRecipes) }
@@ -150,6 +193,7 @@ function FavoriteRecipes() {
 
         </button>
         <button
+          className="filter-buttons-favorite"
           type="button"
           data-testid="filter-by-food-btn"
           onClick={ () => setRecipes(
@@ -160,6 +204,7 @@ function FavoriteRecipes() {
 
         </button>
         <button
+          className="filter-buttons-favorite"
           type="button"
           data-testid="filter-by-drink-btn"
           onClick={ () => setRecipes(
@@ -170,7 +215,7 @@ function FavoriteRecipes() {
 
         </button>
       </div>
-      <div>
+      <div className="recipe-container-favorite">
         { renderRecipesFavorites() }
       </div>
 

@@ -11,10 +11,10 @@ function CardDoneRecipes() {
   const { doneRecipes } = useContext(MyContext);
 
   return (
-    <div className="recipe-container">
+    <div className="recipe-container-done">
       {
         doneRecipes.map((recipe, index) => (
-          <div className="card-recipe" key={ index }>
+          <div className="card-recipe-done" key={ index }>
             <div>
               <Link to={ `/${recipe.type}s/${recipe.id}` }>
                 <img
@@ -27,17 +27,20 @@ function CardDoneRecipes() {
               </Link>
             </div>
 
-            <div className="info-recipe">
+            <div className="info-recipe-done">
               <Link to={ `/${recipe.type}s/${recipe.id}` }>
-                <h3 className="recipe-name" data-testid={ `${index}-horizontal-name` }>
+                <h3
+                  className="recipe-name-done"
+                  data-testid={ `${index}-horizontal-name` }
+                >
                   {recipe.name }
                 </h3>
               </Link>
 
-              <div className="category-share">
+              <div className="category-share-done">
                 {recipe.type === 'food' && (
                   <h4
-                    className="recipe-category"
+                    className="recipe-category-done"
                     data-testid={ `${index}-horizontal-top-text` }
                   >
                     {`${recipe.nationality} - ${recipe.category}`}
@@ -45,7 +48,7 @@ function CardDoneRecipes() {
                 )}
                 {recipe.type === 'drink' && (
                   <h4
-                    className="recipe-category"
+                    className="recipe-category-done"
                     data-testid={ `${index}-horizontal-top-text` }
                   >
                     {recipe.alcoholicOrNot}
@@ -53,7 +56,7 @@ function CardDoneRecipes() {
                 )}
 
                 <button
-                  className="share-button"
+                  className="share-button-done"
                   type="button"
                   onClick={ () => {
                     const url = `http://localhost:3000/${recipe.type}s/${recipe.id}`;
@@ -62,6 +65,7 @@ function CardDoneRecipes() {
                   } }
                 >
                   <img
+                    className="share-icon-done"
                     src={ shareIcon }
                     alt="share icon"
                     data-testid={ `${index}-horizontal-share-btn` }
@@ -71,21 +75,21 @@ function CardDoneRecipes() {
 
               {
                 linkCopied === true
-                    && <span className="link-copied">Link copied!</span>
+                    && <span className="link-copied-done">Link copied!</span>
               }
 
               <p
-                className="recipe-date"
+                className="recipe-date-done"
                 data-testid={ `${index}-horizontal-done-date` }
               >
                 {`Done in: ${recipe.doneDate}`}
               </p>
 
-              <div className="tag-container">
+              <div className="tag-container-done">
                 {
                   recipe.tags && recipe.tags.slice(0, 2).map((tag) => (
                     <h5
-                      className="recipe-tag"
+                      className="recipe-tag-done"
                       data-testid={ `${index}-${tag}-horizontal-tag` }
                       key={ `${index}-${tag}` }
                     >

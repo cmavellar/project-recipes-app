@@ -1,4 +1,4 @@
-footer {
+.footer-container {
   background-color: #ffe0d4;
   bottom: 0;
   display: flex;
@@ -6,4 +6,8 @@ footer {
   padding: 10px 20px;
   position: fixed;
   width: 100%;
+}
+
+img {
+  width: 40px;
 }
